@@ -37,7 +37,9 @@ $string['default_flag'] = 'Default';
 $string['config'] = 'Configuration';
 $string['receipt'] = 'Receive a copy';
 $string['receipt_help'] = 'Receive a copy of the email being sent';
-$string['disclaimer'] = 'BE SURE TO GET THIS FROM BUDDY AND WHEN YOU DO UPDATE THE CODE';
+$string['disclaimer'] = 'Disclaimer';
+$string['disclaimer_help'] = 'This disclaimer will appear on the email page. The current disclaimer is: {$a}';
+$string['disclaimer_text'] = 'BE SURE TO GET THIS FROM BUDDY AND WHEN YOU DO UPDATE THE CODE';
 
 $string['no_alternates'] = 'No alternate emails found for {$a->fullname}. Continue to make one.';
 

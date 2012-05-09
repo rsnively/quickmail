@@ -49,7 +49,6 @@ $alternates = $DB->get_records_menu('block_quickmail_alternate',
     $alt_params, '', 'id, address');
 
 $blockname = quickmail::_s('pluginname');
-$disclaimer = quickmail::_s('disclaimer');
 $header = quickmail::_s('email');
 
 $PAGE->set_context($context);
@@ -301,7 +300,10 @@ if (empty($warnings)) {
 
 echo $OUTPUT->header();
 echo $OUTPUT->heading($blockname);
-echo $OUTPUT->notification($disclaimer);
+
+if (!empty($CFG->block_quickmail_disclaimer)) {
+    echo $OUTPUT->notification(quickmail::_s('disclaimer_text'));
+}
 
 foreach ($warnings as $type => $warning) {
     $class = ($type == 'success') ? 'notifysuccess' : 'notifyproblem';

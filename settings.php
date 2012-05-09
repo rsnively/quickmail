@@ -53,4 +53,12 @@ if($ADMIN->fulltree) {
             0, $options
         )
     );
+
+    $settings->add(
+        new admin_setting_configselect('block_quickmail_disclaimer',
+            quickmail::_s('disclaimer'),
+            quickmail::_s('disclaimer_help', quickmail::_s('disclaimer_text')),
+            0, $select
+        )
+    );
 }
