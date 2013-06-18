@@ -19,9 +19,17 @@ if($ADMIN->fulltree) {
     $roles = $DB->get_records('role', null, 'sortorder ASC');
 
     $default_sns = array('editingteacher', 'teacher', 'student');
-    $defaults = array_filter($roles, function ($role) use ($default_sns) {
-        return in_array($role->shortname, $default_sns);
-    });
+    // START UCLA MOD: CCLE-3964 - Quickmail block doesn't install cleanly on PHP 5.4
+//    $defaults = array_filter($roles, function ($role) use ($default_sns) {
+//        return in_array($role->shortname, $default_sns);
+//    });
+    $defaults = array();
+    foreach ($roles as $index => $role) {
+        if (in_array($role->shortname, $default_sns)) {
+            $defaults[$index] = $role;
+        }
+    }
+    // END UCLA MOD: CCLE-3964
 
     $only_names = function ($role) { return $role->shortname; };
 
