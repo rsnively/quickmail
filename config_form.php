@@ -18,8 +18,14 @@ class config_form extends moodleform {
 
         $student_select = array(0 => get_string('no'), 1 => get_string('yes'));
 
-        $mform->addElement('select', 'allowstudents',
-            quickmail::_s('allowstudents'), $student_select);
+        // BEGIN UCLA MOD: CCLE-4166
+        // Don't allow quickmail to be accessible to students, to protect
+        // the privacy of classmates.
+        //
+        // $mform->addElement('select', 'allowstudents',
+        //     quickmail::_s('allowstudents'), $student_select);
+        //
+        // END UCLA MOD: CCLE-4166
 
         $roles =& $mform->addElement('select', 'roleselection',
             quickmail::_s('select_roles'), $this->_customdata['roles']);
